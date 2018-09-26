@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UhCounter</string>
+    <string name="back">Back</string>
+    <string name="todo">TODO</string>
+    <string name="set_number">set number</string>
+    <string name="text">text</string>
+</resources>
