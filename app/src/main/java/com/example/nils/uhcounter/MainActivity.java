@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             displayGif();
         }
         }
-//comment
+
     }
 
     private void displayGif() {
