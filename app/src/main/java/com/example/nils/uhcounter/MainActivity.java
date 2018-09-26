@@ -26,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
     private int uhCount;
     final private long gifLength = 1000;
+    private boolean gifRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        gifRunning = false;
 
         uhCount = getCountFromSave();
 
@@ -65,14 +67,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void countUh(View view){
+    public void uhCountPlus(View view){
 
         uhCount++;
         saveCount(uhCount);
         if(uhCount >= 0) {
             displayUhCountText();
+            if (!gifRunning){
             displayGif();
         }
+        }
+
     }
 
     private void displayGif() {
@@ -85,12 +90,14 @@ public class MainActivity extends AppCompatActivity {
     private void viewGif(long gifLength) {
 
         GifImageView gifImageView = (GifImageView) findViewById(R.id.gifDisplay);
+        gifRunning = true;
 
         Runnable gifDeleter = new Runnable() {
             @Override
             public void run() {
                 GifImageView gifImageView = (GifImageView) findViewById(R.id.gifDisplay);
                 gifImageView.setImageResource(0);
+                gifRunning = false;
             }
 
 
