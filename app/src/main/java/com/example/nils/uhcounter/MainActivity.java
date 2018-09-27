@@ -73,18 +73,12 @@ public class MainActivity extends AppCompatActivity {
         if(uhCount >= 0) {
             displayUhCountText();
             if (!gifRunning){
-            displayGif();
+             viewGif(gifLength);
         }
         }
 
     }
 
-    private void displayGif() {
-        View view = findViewById(R.id.gifDisplay);
-        viewGif(gifLength);
-
-
-    }
 
     private void viewGif(long gifLength) {
 
@@ -106,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         gifImageView.setImageResource(R.drawable.giphy);
         handler.postDelayed(gifDeleter, gifLength);
+
 
     }
 
